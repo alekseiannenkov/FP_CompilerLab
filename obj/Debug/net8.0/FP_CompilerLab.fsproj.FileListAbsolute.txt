@@ -1,0 +1,5 @@
+C:\3course\FuncProg\FP_CompilerLab\obj\Debug\net8.0\FP_CompilerLab.fsproj.AssemblyReference.cache
+C:\3course\FuncProg\FP_CompilerLab\obj\Debug\net8.0\FP_CompilerLab.AssemblyInfoInputs.cache
+C:\3course\FuncProg\FP_CompilerLab\obj\Debug\net8.0\FP_CompilerLab.AssemblyInfo.fs
+C:\3course\FuncProg\FP_CompilerLab\obj\Debug\net8.0\FP_CompilerLab.fsproj.CoreCompileInputs.cache
+C:\3course\FuncProg\FP_CompilerLab\obj\Debug\net8.0\FP_CompilerLab.sourcelink.json

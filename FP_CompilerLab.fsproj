@@ -1,0 +1,8 @@
+<ItemGroup>
+  <Compile Include="Lang.fs" />
+  <Compile Include="Tokenizer.fs" />
+  <Compile Include="Parser.fs" />
+  <Compile Include="Interpreter.fs" />
+  <Compile Include="Tests.fs" />
+  <Compile Include="Program.fs" />
+</ItemGroup>
