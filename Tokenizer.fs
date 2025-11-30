@@ -1,21 +1,18 @@
 module Tokenizer = 
 
-    // let x = Let("f",Lambda("x",Apply(Apply(PredefFunc("+"),Var("x")),Int(1))),Apply(Var("f"),Int(5)))
-
     type Token =
         | TokenInt of int
         | TokenVar of string
         | TokenOperation of string
         | TokenBool of bool
-        | TokenIf
-        | TokenLeftBracket
-        | TokenRightBracket
+        | TokenIf                   // 'if'
+        | TokenLeftBracket          // '('
+        | TokenRightBracket         // ')'
         | TokenLambda               // '\'
         | TokenRightArrow           // '->'
         | TokenGets                 // '<-'
         | TokenLBracketList         // '['
         | TokenRBracketList         // ']'
-        | TokenCurry                // '^'
         | TokenRecursive            // '$'
 
     let rec tokenize_number acc line = 
@@ -51,11 +48,6 @@ module Tokenizer =
                 match ch with
                 | c when System.Char.IsWhiteSpace c ->
                     loop tail acc
-
-                // | '(' | ')' ->
-                //     loop tail acc
-
-                // скобки для application 
                 | '(' ->
                     loop tail (TokenLeftBracket::acc)
                 | ')' -> 
@@ -96,12 +88,8 @@ module Tokenizer =
                     loop tail (TokenLBracketList :: acc)
                 | ']' ->
                     loop tail (TokenRBracketList :: acc)
-                | '^' ->
-                    loop tail (TokenCurry :: acc)
                 | '$' ->
                     loop tail (TokenRecursive :: acc)
-                // | ',' ->
-                //     loop tail (TokenComma :: acc)
                 | _ ->
                     failwithf "Unknown character '%c'" ch
                 

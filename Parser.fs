@@ -1,8 +1,5 @@
 module Parser =    
 
-    // #load "Tokenizer.fs"
-    // #load "Lang.fs"
-
     open Tokenizer
     open Lang
 
@@ -25,7 +22,13 @@ module Parser =
 
             | TokenBool b::tail -> Bool b, tail
             
-            | TokenVar v::tail -> Var v, tail
+            | TokenVar v :: tail ->
+                let expr =
+                    match v with
+                    | "head" | "tail" | "isEmpty" | "length"
+                    | "map" | "filter" | "fold" | "mapfold" -> PredefFunc v
+                    | _ -> Var v
+                expr, tail
 
             | TokenOperation op :: tail ->
                 let arg1, tail1 = parse tail
